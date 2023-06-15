@@ -151,24 +151,70 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 180,
             width: MediaQuery.of(context).size.width,
-            child: Stack(children: [
-              Container(
-                margin: const EdgeInsets.only(top: 30),
-                width: MediaQuery.of(context).size.width,
-                height: 120,
-                decoration: BoxDecoration(
+            child: Stack(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  width: MediaQuery.of(context).size.width,
+                  height: 120,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                          image: AssetImage('assets/card.png'),
+                          fit: BoxFit.fill),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 40,
+                          offset: const Offset(8, 10),
+                          color: Colors.deepPurple.withOpacity(0.4),
+                        ),
+                        BoxShadow(
+                          blurRadius: 10,
+                          offset: const Offset(-1, -5),
+                          color: Colors.deepPurple.withOpacity(0.4),
+                        )
+                      ]),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.only(right: 180, bottom: 30, top: 0),
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: const DecorationImage(
-                        image: AssetImage('assets/card.png'), fit: BoxFit.fill),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 10,
-                        offset: const Offset(-8, -10),
-                        color: Colors.deepPurple.withOpacity(0.4),
-                      )
-                    ]),
-              )
-            ]),
+                      image: AssetImage('assets/women_running.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.maxFinite,
+                  height: 100,
+                  //color: Colors.redAccent.withOpacity(0.3),
+                  margin: const EdgeInsets.only(left: 175, top: 46),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Lo Estás Haciendo Genial',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.deepPurple),
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      RichText(
+                        text: const TextSpan(
+                            text: 'Avanza\n',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            children: [TextSpan(text: 'Apégate a tu plan')]),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ]),
       ),
