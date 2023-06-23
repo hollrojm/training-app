@@ -167,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 5,
             ),
             SizedBox(
-              height: 180,
+              height: 160,
               width: MediaQuery.of(context).size.width,
               child: Stack(
                 children: [
@@ -195,8 +195,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    margin:
-                        const EdgeInsets.only(right: 180, bottom: 30, top: 0),
+                    margin: const EdgeInsets.only(
+                      right: 180,
+                      bottom: 30,
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: const DecorationImage(
@@ -245,11 +247,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 25,
                       fontWeight: FontWeight.w500,
                       color: Colors.deepPurple),
-                )
+                ),
               ],
             ),
             Expanded(
+              child: OverflowBox(
+                maxWidth: MediaQuery.of(context).size.width,
                 child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    physics: const BouncingScrollPhysics(),
                     itemCount: info.length.toDouble() ~/ 2,
                     itemBuilder: (_, i) {
                       int a = 2 * i;
@@ -257,8 +263,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Row(
                         children: [
                           Container(
-                            width: 185,
+                            width: (MediaQuery.of(context).size.width - 90) / 2,
                             height: 190,
+                            margin: const EdgeInsets.only(
+                                left: 30, bottom: 15, top: 10),
                             padding: const EdgeInsets.only(
                               bottom: 5,
                             ),
@@ -272,8 +280,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 BoxShadow(
                                     blurRadius: 3,
                                     offset: const Offset(5, 5),
-                                    color: color.AppColor.gradientSecond
-                                        .withOpacity(0.1)),
+                                    color: color.AppColor.gradientFirst
+                                        .withOpacity(0.5)),
                                 BoxShadow(
                                     blurRadius: 3,
                                     offset: const Offset(-5, -5),
@@ -293,8 +301,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Container(
-                            width: 185,
+                            width: (MediaQuery.of(context).size.width - 90) / 2,
                             height: 190,
+                            margin: const EdgeInsets.only(
+                                left: 30, bottom: 15, top: 10),
                             padding: const EdgeInsets.only(
                               bottom: 5,
                             ),
@@ -308,8 +318,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 BoxShadow(
                                     blurRadius: 3,
                                     offset: const Offset(5, 5),
-                                    color: color.AppColor.gradientSecond
-                                        .withOpacity(0.1)),
+                                    color: color.AppColor.gradientFirst
+                                        .withOpacity(0.5)),
                                 BoxShadow(
                                     blurRadius: 3,
                                     offset: const Offset(-5, -5),
@@ -330,7 +340,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       );
-                    }))
+                    }),
+              ),
+            ),
           ],
         ),
       ),
